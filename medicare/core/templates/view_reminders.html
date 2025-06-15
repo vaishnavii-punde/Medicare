@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reminders</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #f1f8ff);
+            font-family: 'Segoe UI', sans-serif;
+            padding: 40px;
+        }
+        h2 {
+            text-align: center;
+            color: #4a90e2;
+        }
+        .reminder {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 60%;
+        }
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #4a90e2;
+        }
+        .actions a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Medicine Reminders</h2>
+    {% for reminder in reminders %}
+        <div class="reminder">
+            <p><strong>Name:</strong> {{ reminder.name }}</p>
+            <p><strong>Time:</strong> {{ reminder.dosage_time }}</p>
+            <p><strong>Start:</strong> {{ reminder.start_date }} | <strong>End:</strong> {{ reminder.end_date }}</p>
+            <div class="actions">
+                <a href="{% url 'edit_reminder' reminder.id %}">Edit</a>
+                <a href="{% url 'delete_reminder' reminder.id %}">Delete</a>
+            </div>
+        </div>
+    {% empty %}
+        <p style="text-align:center;">No reminders found.</p>
+    {% endfor %}
+</body>
+</html>
