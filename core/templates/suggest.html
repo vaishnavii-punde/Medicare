@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicine Suggestion</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>🩺 Smart Medicine Suggestion</h1>
+        <p class="subtext">Enter your symptoms and get the most suitable medicine recommended for you.</p>
+        
+        <form method="POST" class="form-box">
+            {% csrf_token %}
+            <input type="text" name="symptoms" placeholder="e.g., fever, cough, headache" required>
+            <button type="submit">Get Suggestion</button>
+        </form>
+
+        {% if medicine %}
+            <div class="result">
+                <h3>💊 Suggested Medicine:</h3>
+                <p>{{ medicine }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
