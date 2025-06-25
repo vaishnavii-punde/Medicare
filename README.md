@@ -24,5 +24,4 @@ A Django-based web application that helps users:
 - Email Service: Gmail SMTP
 - Others: Python-Decouple for environment variables
 
-## Folder Structure
 
