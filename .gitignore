@@ -9,7 +9,26 @@ db.sqlite3
 .env
 
 # VS Code / IDEs
+.vscode/# Python
+*.pyc
+__pycache__/
+
+# Django
+db.sqlite3
+/staticfiles/
+/media/
+
+# Virtualenv
+venv/
+env/
+
+# Environment Variables
+.env
+
+# VSCode and Mac
 .vscode/
+.DS_Store
+
 .idea/
 
 # OS

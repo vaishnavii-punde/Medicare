@@ -1,60 +1,70 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Reminder</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #e0f7fa, #f1f8ff);
-            font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            width: 400px;
-        }
-        h2 {
-            color: #4a90e2;
-            text-align: center;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        input {
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background-color: #4a90e2;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #3a78c2;
-        }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <h2>Add Medicine Reminder</h2>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Set Reminder</button>
-        </form>
-    </div>
-</body>
-</html>
+{% block title %}Add Reminder{% endblock %}
+
+{% block content %}
+<style>
+    .form-container {
+        max-width: 600px;
+        margin: 50px auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #0077b6;
+        font-size: 1.8rem;
+    }
+
+    .styled-form input,
+    .styled-form select,
+    .styled-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #0077b6;
+        color: white;
+        font-size: 1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        background-color: #023e8a;
+    }
+</style>
+
+<div class="form-container">
+    <h2 class="section-title">📝 Add a Medicine Reminder</h2>
+    <form method="POST" class="styled-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-primary">Add Reminder</button>
+    </form>
+{% extends 'base.html' %}
+{% block title %}Add Reminder{% endblock %}
+{% block content %}
+<div class="container form-box">
+  <h2>Add a Medicine Reminder</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Reminder</button>
+  </form>
+</div>
+{% endblock %}
 

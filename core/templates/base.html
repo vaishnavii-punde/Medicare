@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Medico{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <header>
+    <nav>
+      {% if user.is_authenticated %}
+      <a href="{% url 'home' %}">Home</a> |
+      <a href="{% url 'add_reminder' %}">Add Reminder</a> |
+      <a href="{% url 'view_reminders' %}">View Reminders</a> |
+      <a href="{% url 'suggest_medicine' %}">Suggest Medicine</a> |
+      <a href="{% url 'logout' %}">Logout</a>
+      {% else %}
+      <a href="{% url 'login' %}">Login</a> |
+      <a href="{% url 'register' %}">Register</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    &copy; 2025 MediCare | Built with ❤️ by Vaishnavi
+  </footer>
+</body>
+</html>
+
+

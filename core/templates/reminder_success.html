@@ -1,43 +1,50 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Reminder Set</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #e0f7fa, #f1f8ff);
-            font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .box {
-            background-color: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-        h2 {
-            color: #4a90e2;
-        }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            color: #4a90e2;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <div class="box">
-        <h2>Medicine Reminder Set Successfully!</h2>
-        <a href="{% url 'view_reminders' %}">View All Reminders</a>
-    </div>
-</body>
-</html>
+{% block title %}Reminder Added{% endblock %}
+
+{% block content %}
+<style>
+    .success-container {
+        max-width: 600px;
+        margin: 80px auto;
+        padding: 40px;
+        background-color: #e6fffa;
+        border: 2px solid #00b894;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .success-container h2 {
+        color: #007f5f;
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+    }
+
+    .success-container p {
+        font-size: 1.1rem;
+        color: #333;
+        margin-bottom: 25px;
+    }
+
+    .success-container a {
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: #0077b6;
+        color: white;
+        border-radius: 6px;
+        transition: background-color 0.2s ease;
+    }
+
+    .success-container a:hover {
+        background-color: #023e8a;
+    }
+</style>
+
+<div class="success-container">
+    <h2>✅ Reminder Added Successfully!</h2>
+    <p>Your medicine reminder has been saved.</p>
+    <a href="{% url 'home' %}">Back to Dashboard</a>
+</div>
+{% endblock %}
+
